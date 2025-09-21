@@ -6,7 +6,7 @@ import Navbar from "@/components/layout/Navbar";
 
 const afogand = localFont({
   src: "../../public/assets/fonts/Afogand-ALMqL.ttf",
-  variable: "--font-geist-sans",
+  variable: "--font-afogand",
 });
 
 const crimsonPro = Crimson_Pro({
@@ -24,7 +24,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${afogand.variable} ${crimsonPro.variable}`}>
         {/* Navbar */}
-        <Navbar />
+        <header className="h-[88px]">
+          <Navbar />
+        </header>
 
         {/* Main Content */}
         <main>{children}</main>
