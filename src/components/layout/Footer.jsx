@@ -13,7 +13,7 @@ const Footer = () => {
         {/* Logo Section */}
         <div className="flex items-center justify-center md:justify-start w-full md:w-auto">
           <Link href="/" className="flex items-center gap-2">
-            <Image src={Logo} alt="Logo" width={50} height={50} priority />
+            <Image src={Logo} alt="Logo" width={60} priority />
             <h5 className="text-3xl md:text-4xl font-bold tracking-wide lowercase">
               E <span className="font-crimson-pro text-4xl md:text-5xl text-cyan-500">i</span> S
             </h5>
