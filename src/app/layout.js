@@ -24,12 +24,13 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${afogand.variable} ${crimsonPro.variable}`}>
         {/* Navbar */}
-        <header className="h-[88px]">
+        <header className="h-[100px]">
           <Navbar />
         </header>
 
         {/* Main Content */}
-        <main>{children}</main>
+        <main className="min-h-[calc(100vh-100px)]"
+        >{children}</main>
 
         {/* Footer */}
         <Footer />
