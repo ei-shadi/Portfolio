@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${afogand.variable} ${crimsonPro.variable}`}>
-        <BeamsUpstream />
+        <BeamsUpstream className="z-0" />
 
         {/* Navbar */}
         <header className="h-[108px]">

@@ -11,6 +11,17 @@ import Image from "next/image";
 import Link from "next/link";
 import Button from "../shared/Button";
 
+// Helper function to get social brand colors
+const getSocialColor = (url) => {
+  if (url.includes("facebook.com")) return "#1877F2";
+  if (url.includes("linkedin.com")) return "#0A66C2";
+  if (url.includes("github.com")) return "#ffffff";
+  if (url.includes("wa.me")) return "#25D366";
+  if (url.includes("discord.gg")) return "#5865F2";
+  if (url.includes("mailto")) return "#f97316";
+  return "currentColor";
+};
+
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [animate, setAnimate] = useState(false);
@@ -83,20 +94,20 @@ const Navbar = () => {
                   <Link
                     href={link.href}
                     className={`relative tracking-wide text-lg xl:text-xl transition-transform duration-300
-          ${pathname === link.href
+                    ${pathname === link.href
                         ? "border-b-4 border-orange-500 rounded pb-1 px-4 text-cyan-500 font-afogand"
-                        : "text-gray-400 font-bold after:absolute after:bottom-0 rounded after:left-0 after:h-[4px] after:w-full pb-2 px-4 hover:text-orange-500 after:origin-bottom-right after:scale-x-0 after:bg-cyan-500 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100"
-                      }`}>
+                        : "text-gray-400 font-bold after:absolute after:bottom-0 after:left-0 after:h-[4px] after:w-full pb-2 px-4 hover:text-orange-500 after:origin-bottom-right after:scale-x-0 after:bg-cyan-500 after:rounded-2xl after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100"
+                      }`}
+                  >
                     {link.label}
                   </Link>
                 </li>
               ))}
             </ul>
 
-
             {/* Desktop Button */}
             <div className="hidden lg:flex items-center space-x-6 lg:space-x-10">
-              <Button label="Hire Me" />
+              <Button label="Let's Talk" />
             </div>
 
             {/* Hamburger for Mobile */}
@@ -106,7 +117,7 @@ const Navbar = () => {
               className="lg:hidden p-2 rounded text-gray-300 hover:text-orange-500 transition"
             >
               {isMenuOpen ? (
-                <GiSplitCross className="w-7 h-7" />
+                <GiSplitCross className="w-7 h-7 text-red-500" />
               ) : (
                 <TbMenu className="w-7 h-7" />
               )}
@@ -121,7 +132,7 @@ const Navbar = () => {
           className={`fixed inset-0 z-40 transition-transform duration-500 ease-in-out ${animate ? "translate-x-0" : "-translate-x-full"
             }`}
           style={{
-            backgroundColor: "rgba(255, 255, 255, 0.06)",
+            backgroundColor: "rgba(255, 255, 255, 0.04)",
             backdropFilter: "blur(15px)",
             WebkitBackdropFilter: "blur(15px)",
           }}
@@ -143,7 +154,7 @@ const Navbar = () => {
                   }}
                 >
                   {pathname === link.href && <GoDotFill className="text-orange-400 w-5" />}
-                  <span className="mx-2 text-3xl">{link.label}</span>
+                  <span className="mx-2 text-4xl">{link.label}</span>
                   {pathname === link.href && <GoDotFill className="text-orange-400 w-5" />}
                 </Link>
               ))}
@@ -162,7 +173,7 @@ const Navbar = () => {
               </div>
             </nav>
 
-            {/* Social icons - appear after button */}
+            {/* Social icons - actual brand colors and matching border */}
             <div
               className="flex justify-center space-x-6"
               style={{
@@ -173,23 +184,25 @@ const Navbar = () => {
                 transitionDuration: "500ms",
               }}
             >
-              {socialLinks.map((social, idx) => (
-                <Link
-                  key={idx}
-                  href={social.href}
-                  target="_blank"
-                  className="p-2 rounded-full border border-gray-400 text-gray-300 hover:text-white hover:border-white transition"
-                >
-                  {social.icon}
-                </Link>
-              ))}
+              {socialLinks.map((social, idx) => {
+                const color = getSocialColor(social.href);
+                return (
+                  <Link
+                    key={idx}
+                    href={social.href}
+                    target="_blank"
+                    className="p-2 rounded-full text-lg md:text-2xl transition"
+                    style={{ color: color, border: `2px solid ${color}` }}
+                  >
+                    {social.icon}
+                  </Link>
+                );
+              })}
             </div>
+
           </div>
         </div>
       )}
-
-
-
     </div>
   );
 };

@@ -1,29 +1,27 @@
-import React from 'react';
-import styled from 'styled-components';
-import Link from 'next/link';
+"use client";
+
+import styled from "styled-components";
+import Link from "next/link";
 import { 
   FaFacebookF, 
-  FaInstagram, 
   FaLinkedinIn, 
   FaGithub, 
   FaWhatsapp, 
-  FaEnvelope,
-  FaDiscord 
-} from 'react-icons/fa';
+  FaEnvelope
+} from "react-icons/fa";
 
 const SocialButton = () => {
   const socialLinks = [
     { href: "https://www.facebook.com/eftajulislamshadi", icon: <FaFacebookF />, color: "#1877F2" },     
     { href: "https://linkedin.com/in/eftajulislamshadi", icon: <FaLinkedinIn />, color: "#0077B5" },
-    { href: "https://github.com/ei-shadi", icon: <FaGithub />, color: "" },                      
-    { href: "https://discord.com/users/YOUR_DISCORD_ID", icon: <FaDiscord />, color: "#5865F2" },  
+    { href: "https://github.com/ei-shadi", icon: <FaGithub />, color: "#333" },                      
     { href: "https://wa.me/8801930242273", icon: <FaWhatsapp />, color: "#25D366" },              
-    { href: "mailto:eftajul.shadi@gmail.com", icon: <FaEnvelope />, color: "#EA4335" },             
+    { href: "mailto:eftajul.shadi@gmail.com", icon: <FaEnvelope />, color: "#f97316" },             
   ];
 
   return (
     <StyledWrapper>
-      <div className="button-grid">
+      <div className="button-row">
         {socialLinks.map((link, index) => (
           <Link
             key={index}
@@ -31,7 +29,7 @@ const SocialButton = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="button flex-center"
-            style={{ '--hover-color': link.color }}
+            style={{ "--brand-color": link.color }}
           >
             <span className="btn-svg">{link.icon}</span>
           </Link>
@@ -42,51 +40,41 @@ const SocialButton = () => {
 };
 
 const StyledWrapper = styled.div`
-  .button-grid {
-    display: grid;
-    gap: 1.2rem;
+  .button-row {
+    display: flex;
     justify-content: center;
-    /* Small to medium screens: all 6 icons in 1 row */
-    grid-template-columns: repeat(6, 1fr);
-  }
-
-  /* Large screens: 3 icons per row */
-  @media (min-width: 1024px) {
-    .button-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
+    gap: 1rem;
   }
 
   .button {
     cursor: pointer;
     text-decoration: none;
-    color: #ffffff;
-    width: 38px;
-    height: 38px;
+    width: 43px;
+    height: 43px;
     border-radius: 50%;
-    border: 2px solid #98a0b0;
+    border: 2px solid var(--brand-color);
     background-color: transparent; 
-    transition: all 0.5s ease;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: background-color 0.4s ease;
   }
 
-  /* Hover effect: border color + spin */
-  .button:hover {
-    border-color: var(--hover-color);
-    color: var(--hover-color);
-    transform: scale(1.3) rotate(720deg);
-  }
-
+  /* Default icon size and color */
   .btn-svg {
     font-size: 16px;
-    transition: color 0.3s ease;
+    color: white;
+    transition: transform 0.4s ease;
   }
 
-  /* Icon color changes on hover */
+  /* Hover: background fills brand color, icon scales and spins */
+  .button:hover {
+    background-color: var(--brand-color);
+  }
+
   .button:hover .btn-svg {
-    color: var(--hover-color);
+    transform: rotate(720deg) scale(1.5); /* Only icon scales */
+    color: white;
   }
 
   .flex-center {
