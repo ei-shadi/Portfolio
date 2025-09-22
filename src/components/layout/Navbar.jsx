@@ -26,32 +26,33 @@ const Navbar = () => {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
+  // Center links
   const centerLinks = [
     { href: "/", label: "Home" },
     { href: "/projects", label: "Projects" },
     { href: "/contact", label: "Contact" },
   ];
 
-const socialLinks = [
- { href: "https://www.facebook.com/eftajulislamshadi", icon: <FaFacebookF /> },
-  { href: "https://www.instagram.com/ei_shadi/", icon: <FaInstagram /> },
-  { href: "https://linkedin.com/in/eftajulislamshadi", icon: <FaLinkedinIn /> },
-  { href: "https://github.com/ei-shadi", icon: <FaGithub /> },    
-  { href: "https://wa.me/8801930242273", icon: <FaWhatsapp /> },    
-  { href: "https://discord.gg/PgBeJxnV", icon: <FaDiscord /> },
-  { href: "mailto:eftajul.shadi@gmail.com", icon: <FaEnvelope /> }, 
-];
+  // Social links
+  const socialLinks = [
+    { href: "https://www.facebook.com/eftajulislamshadi", icon: <FaFacebookF /> },
+    { href: "https://linkedin.com/in/eftajulislamshadi", icon: <FaLinkedinIn /> },
+    { href: "https://github.com/ei-shadi", icon: <FaGithub /> },
+    { href: "https://wa.me/8801930242273", icon: <FaWhatsapp /> },
+    { href: "https://discord.gg/PgBeJxnV", icon: <FaDiscord /> },
+    { href: "mailto:eftajul.shadi@gmail.com", icon: <FaEnvelope /> },
+  ];
 
   return (
     <div className="fixed top-0 left-0 w-full z-50">
       <div className="px-4 py-6 mx-auto sm:max-w-xl md:max-w-full lg:max-w-[90%] md:px-24 lg:px-0 text-white">
         <div className="flex items-center justify-between w-full">
 
-          {/* Logo (Left) */}
+          {/* Logo */}
           <Link href="/" className="flex items-center gap-1">
-            <Image src={Logo} alt="Logo" width={48} height={48} />
-            <h5 className="ml-2 text-3xl font-bold tracking-wide lowercase">
-              E <span className="font-crimson-pro text-4xl text-cyan-500">i</span> S
+            <Image src={Logo} alt="Logo" width={60} />
+            <h5 className="ml-2 text-4xl font-bold tracking-wide lowercase">
+              E <span className="font-crimson-pro text-5xl text-cyan-500">i</span> S
             </h5>
           </Link>
 
@@ -61,11 +62,10 @@ const socialLinks = [
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className={`tracking-wide text-lg xl:text-xl transition-transform duration-300 ${
-                    pathname === link.href
+                  className={`tracking-wide text-lg xl:text-xl transition-transform duration-300 ${pathname === link.href
                       ? "border-b-4 border-orange-500 rounded pb-1 px-4 text-cyan-500 font-afogand"
                       : "text-gray-400 hover:bg-white px-6 py-2 rounded-3xl font-bold hover:text-orange-500 hover:animate-bounceHover"
-                  }`}
+                    }`}
                 >
                   {link.label}
                 </Link>
@@ -148,9 +148,8 @@ const socialLinks = [
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`relative flex items-center justify-between text-2xl font-semibold transition-all duration-500 ease-out ${
-                    pathname === link.href ? "text-cyan-500" : "text-gray-500"
-                  }`}
+                  className={`relative flex items-center justify-between text-2xl font-semibold transition-all duration-500 ease-out ${pathname === link.href ? "text-cyan-500" : "text-gray-500"
+                    }`}
                   style={{
                     transitionProperty: "opacity, transform",
                     transitionDuration: "450ms",
@@ -177,7 +176,7 @@ const socialLinks = [
               }}
               className="mt-4"
             >
-            <Button label="Hire Me" />
+              <Button label="Hire Me" />
             </div>
           </nav>
 
@@ -200,7 +199,7 @@ const socialLinks = [
               >
                 {social.icon}
               </Link>
-              
+
             ))}
           </div>
         </div>

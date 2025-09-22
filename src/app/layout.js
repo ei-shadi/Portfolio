@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
+import { BeamsUpstream } from "@/components/ui/beams-upstream";
 
 const afogand = localFont({
   src: "../../public/assets/fonts/Afogand-ALMqL.ttf",
@@ -23,8 +24,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${afogand.variable} ${crimsonPro.variable}`}>
+        <BeamsUpstream />
         {/* Navbar */}
-        <header className="h-[100px]">
+        <header className="h-[108px]">
           <Navbar />
         </header>
 
