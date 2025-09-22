@@ -3,17 +3,15 @@ import React from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-export const BeamsUpstream = React.memo(({
-  className
-}) => {
+export const BeamsUpstream = React.memo(({ className }) => {
   const generatePaths = () => {
     const paths = [];
-    const screenSections = 12; 
-    
+    const screenSections = 12;
+
     for (let section = 0; section < screenSections; section++) {
-      const baseX = (section * 100) / (screenSections - 1); 
+      const baseX = (section * 100) / (screenSections - 1);
       for (let variation = 0; variation < 4; variation++) {
-        const startX = baseX + (Math.random() - 0.5) * 15; 
+        const startX = baseX + (Math.random() - 0.5) * 15;
         const midX1 = startX + (Math.random() - 0.5) * 20;
         const midX2 = startX + (Math.random() - 0.5) * 25;
         const endX = startX + (Math.random() - 0.5) * 30;
@@ -23,7 +21,7 @@ export const BeamsUpstream = React.memo(({
         paths.push(altPath);
       }
     }
-    
+
     return paths;
   };
 
@@ -34,7 +32,8 @@ export const BeamsUpstream = React.memo(({
       className={cn(
         "absolute inset-0 flex h-full w-full items-center justify-center overflow-hidden",
         className
-      )}>
+      )}
+    >
       <svg
         className="pointer-events-none absolute z-0 h-full w-full"
         width="100%"
@@ -42,9 +41,10 @@ export const BeamsUpstream = React.memo(({
         viewBox="0 0 100 100"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        preserveAspectRatio="none">
+        preserveAspectRatio="none"
+      >
         <rect width="100%" height="100%" fill="url(#backgroundGradient)" opacity="0.1" />
-        
+
         <g opacity="0.2">
           {paths.map((path, index) => (
             <path
@@ -54,7 +54,8 @@ export const BeamsUpstream = React.memo(({
               strokeOpacity="0.3"
               strokeWidth="0.2"
               fill="none"
-              vectorEffect="non-scaling-stroke" />
+              vectorEffect="non-scaling-stroke"
+            />
           ))}
         </g>
 
@@ -75,7 +76,8 @@ export const BeamsUpstream = React.memo(({
               repeat: Infinity,
               repeatType: "loop",
               delay: Math.random() * 4,
-            }} />
+            }}
+          />
         ))}
 
         {paths.slice(0, 20).map((path, index) => (
@@ -83,7 +85,11 @@ export const BeamsUpstream = React.memo(({
             key={`particle-${index}`}
             r="0.3"
             fill={`url(#particleGradient-${index % 10})`}
-            initial={{ offsetDistance: "0%" }}
+            style={{
+              offsetPath: `path('${path}')`,
+              offsetRotate: "0deg",
+              offsetDistance: "0%",
+            }}
             animate={{ offsetDistance: "100%" }}
             transition={{
               duration: Math.random() * 8 + 6,
@@ -91,10 +97,7 @@ export const BeamsUpstream = React.memo(({
               repeat: Infinity,
               delay: Math.random() * 6,
             }}
-            style={{
-              offsetPath: `path('${path}')`,
-              offsetRotate: "0deg",
-            }} />
+          />
         ))}
 
         <defs>
@@ -103,7 +106,8 @@ export const BeamsUpstream = React.memo(({
             cx="50%"
             cy="80%"
             r="60%"
-            gradientUnits="objectBoundingBox">
+            gradientUnits="objectBoundingBox"
+          >
             <stop offset="0%" stopColor="#6366F1" stopOpacity="0.3" />
             <stop offset="50%" stopColor="#8B5CF6" stopOpacity="0.1" />
             <stop offset="100%" stopColor="#EC4899" stopOpacity="0" />
@@ -115,7 +119,8 @@ export const BeamsUpstream = React.memo(({
             y1="100%"
             x2="0%"
             y2="0%"
-            gradientUnits="objectBoundingBox">
+            gradientUnits="objectBoundingBox"
+          >
             <stop offset="0%" stopColor="#6366F1" stopOpacity="0.8" />
             <stop offset="50%" stopColor="#8B5CF6" stopOpacity="0.6" />
             <stop offset="100%" stopColor="#EC4899" stopOpacity="0.4" />
@@ -130,29 +135,25 @@ export const BeamsUpstream = React.memo(({
               x2="0%"
               y2="0%"
               gradientUnits="objectBoundingBox"
-              initial={{
-                y1: "100%",
-                y2: "90%",
-              }}
-              animate={{
-                y1: ["100%", "0%"],
-                y2: ["90%", "-10%"],
-              }}
+              initial={{ y1: "100%", y2: "90%" }}
+              animate={{ y1: ["100%", "0%"], y2: ["90%", "-10%"] }}
               transition={{
                 duration: Math.random() * 4 + 3,
                 ease: "linear",
                 repeat: Infinity,
                 delay: Math.random() * 5,
-              }}>
+              }}
+            >
               <stop offset="0%" stopColor="#0EA5E9" stopOpacity="0" />
               <stop offset="30%" stopColor="#3B82F6" stopOpacity="0.8" />
               <stop offset="60%" stopColor="#8B5CF6" stopOpacity="1" />
               <stop offset="100%" stopColor="#EC4899" stopOpacity="0" />
             </motion.linearGradient>
           ))}
+
           <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
             <feGaussianBlur stdDeviation="1" result="coloredBlur" />
-            <feMerge> 
+            <feMerge>
               <feMergeNode in="coloredBlur" />
               <feMergeNode in="SourceGraphic" />
             </feMerge>

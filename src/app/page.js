@@ -1,11 +1,28 @@
-
+import Hero from "@/components/Home/Hero";
 
 const Home = () => {
   return (
-    <h1 className="text-5xl text-red-500 ">
-      About Me Eftajul Islam Shadi
-    
-    </h1>
+    <>
+      {/* Hero Section */}
+      <section>
+      <Hero />
+      </section>
+
+      {/* About Section */}
+      <section></section>
+
+      {/* Education Section */}
+      <section></section>
+
+      {/* Skills Section */}
+      <section></section>
+
+      {/* Projects Section */}
+      <section></section>
+
+      {/* Contact Section */}
+      <section></section>
+    </>
   );
 };
 
