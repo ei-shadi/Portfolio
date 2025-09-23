@@ -9,7 +9,9 @@ const Home = () => {
       </section>
 
       {/* About Section */}
-      <section></section>
+      <section>
+        
+      </section>
 
       {/* Education Section */}
       <section></section>

@@ -28,12 +28,15 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
+
+  // Center Links
   const centerLinks = [
     { href: "/", label: "Home" },
     { href: "/projects", label: "Projects" },
     { href: "/contact", label: "Contact" },
   ];
 
+  // Social Links
   const socialLinks = [
     { href: "https://www.facebook.com/eftajulislamshadi", icon: <FaFacebookF /> },
     { href: "https://linkedin.com/in/eftajulislamshadi", icon: <FaLinkedinIn /> },
@@ -42,6 +45,8 @@ const Navbar = () => {
     { href: "https://discord.gg/PgBeJxnV", icon: <FaDiscord /> },
     { href: "mailto:eftajul.shadi@gmail.com", icon: <FaEnvelope /> },
   ];
+
+
 
   // Toggle body scroll when menu opens
   useEffect(() => {
@@ -107,7 +112,9 @@ const Navbar = () => {
 
             {/* Desktop Button */}
             <div className="hidden lg:flex items-center space-x-6 lg:space-x-10">
-              <Button label="Let's Talk" />
+              <Button
+                label="Let's Talk"
+                actionType="contact" />
             </div>
 
             {/* Hamburger for Mobile */}
@@ -169,7 +176,7 @@ const Navbar = () => {
                   transitionDuration: "500ms",
                 }}
               >
-                <Button label="Hire Me" />
+                <Button label="Let's Talk" onClick={goToContact} />
               </div>
             </nav>
 

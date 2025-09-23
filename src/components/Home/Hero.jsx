@@ -46,7 +46,9 @@ const Hero = () => {
           {/* Social Icons */}
           <div className="relative z-20 flex flex-col gap-5 lg:gap-8 justify-center items-center">
             <SocialButton />
-            <Button label="Resume" />
+            <Button
+              label="Resume"
+              actionType="download" />
           </div>
         </div>
       </div>

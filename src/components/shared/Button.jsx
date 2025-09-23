@@ -1,11 +1,37 @@
 "use client";
 
+import { useState } from 'react';
 import styled from 'styled-components';
+import { useRouter } from "next/navigation";
 
-const Button = ({label = "Button"}) => {
+const Button = ({ label = "Click Here", actionType = "download" }) => {
+
+  const [isClicked, setIsClicked] = useState(false);
+  const router = useRouter(); 
+
+  const handleClick = () => {
+    setIsClicked(true);
+
+    if (actionType === "download") {
+      // Download resume
+      const link = document.createElement("a");
+      link.href = "/Eftajul Islam Shadi Resume.pdf";
+      link.download = "Eftajul_Islam_Shadi_Resume.pdf";
+      link.click();
+    } else if (actionType === "contact") {
+      // Navigate to contact page
+      router.push("/contact");
+    }
+
+    // Keep button animation active briefly
+    setTimeout(() => setIsClicked(false), 300);
+  };
+
   return (
     <StyledWrapper>
-      <button type="button" className="btn cursor-pointer">
+      <button type="button"
+        className={`btn cursor-pointer ${isClicked ? "clicked" : ""}`}
+        onClick={handleClick}>
         <strong>{label}</strong>
         <div id="container-stars">
           <div id="stars" />
@@ -30,7 +56,7 @@ const StyledWrapper = styled.div`
     background-size: 300% 300%;
     backdrop-filter: blur(1rem);
     border-radius: 5rem;
-    transition: 0.5s;
+    transition: transform 0.3s ease, background 0.3s ease; 
     animation: gradient_301 5s ease infinite;
     border: double 4px transparent;
     background-image: linear-gradient(#212121, #212121), linear-gradient(137.48deg, #ffdb3b 10%, #ff9b17d7 45%, #f9ff41 67%, #feb200d7 87%);

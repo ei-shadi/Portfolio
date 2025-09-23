@@ -73,7 +73,7 @@ const StyledWrapper = styled.div`
   }
 
   .button:hover .btn-svg {
-    transform: rotate(720deg) scale(1.5); /* Only icon scales */
+    transform: rotate(720deg) scale(1.6); 
     color: white;
   }
 

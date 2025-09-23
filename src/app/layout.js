@@ -32,8 +32,7 @@ export default function RootLayout({ children }) {
         </header>
 
         {/* Main Content */}
-        <main className="min-h-[calc(100vh-100px)]"
-        >{children}</main>
+        <main className="min-h-[calc(100vh-100px)]">{children}</main>
 
         {/* Footer */}
         <Footer />
