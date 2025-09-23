@@ -8,8 +8,6 @@ const Button = ({
   label = "Click Here",
   actionType = "download",
   onComplete,
-  paddingX = "1.5rem",
-  paddingY = "0.75rem",
 }) => {
   const [isClicked, setIsClicked] = useState(false);
   const router = useRouter();
@@ -31,7 +29,7 @@ const Button = ({
   };
 
   return (
-    <StyledWrapper paddingX={paddingX} paddingY={paddingY}>
+    <StyledWrapper >
       <button
         type="button"
         className={`btn ${isClicked ? "clicked" : ""}`}
@@ -51,11 +49,10 @@ const Button = ({
 };
 
 const StyledWrapper = styled.div`
-  .btn {
+   .btn {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: ${(props) => props.paddingY} ${(props) => props.paddingX};
     overflow: hidden;
     height: 3rem;
     background-size: 300% 300%;
@@ -76,6 +73,12 @@ const StyledWrapper = styled.div`
     background-clip: content-box, border-box;
     position: relative;
     cursor: pointer;
+
+    /* Fixed responsive padding */
+    padding: 0.75rem 1.5rem; /* small devices */
+    @media (min-width: 768px) {
+      padding: 1rem 3rem; /* medium and up */
+    }
   }
 
 

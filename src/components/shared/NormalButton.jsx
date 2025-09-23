@@ -82,7 +82,7 @@ const StyledWrapper = styled.div`
 
   .button1:hover {
     background-color: #02B7DB;
-    color: #0A0A0A;
+    color: #fff;
   }
 
   .button1:hover .button1__icon-wrapper {
