@@ -10,6 +10,7 @@ import Logo from "../../../public/assets/images/Logo.png";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "../shared/Button";
+import NormalButton from "../shared/NormalButton";
 
 // Helper function to get social brand colors
 const getSocialColor = (url) => {
@@ -136,10 +137,10 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div
-          className={`fixed inset-0 z-40 transition-transform duration-500 ease-in-out ${animate ? "translate-x-0" : "-translate-x-full"
+          className={`fixed inset-0 z-40 transition-transform duration-300 ease-in-out ${animate ? "translate-x-0" : "-translate-x-full"
             }`}
           style={{
-            backgroundColor: "rgba(255, 255, 255, 0.04)",
+            backgroundColor: "rgb(0, 0, 0)",
             backdropFilter: "blur(15px)",
             WebkitBackdropFilter: "blur(15px)",
           }}
@@ -152,7 +153,7 @@ const Navbar = () => {
                   key={link.href}
                   href={link.href}
                   onClick={handleMenuToggle}
-                  className={`relative flex items-center text-2xl font-semibold transition-all duration-500 ${pathname === link.href ? "text-cyan-400" : "text-gray-500"
+                  className={`relative flex items-center text-2xl font-semibold transition-all duration-500 ${pathname === link.href ? "text-cyan-400" : "text-gray-300"
                     }`}
                   style={{
                     transitionDelay: `${animate ? idx * 150 + 200 : (centerLinks.length - idx) * 150}ms`,
@@ -176,7 +177,10 @@ const Navbar = () => {
                   transitionDuration: "500ms",
                 }}
               >
-                <Button label="Let's Talk" onClick={goToContact} />
+                <Button 
+                label="Let's Talk" 
+                actionType="contact" 
+                onComplete={() => setIsMenuOpen(false)}/>
               </div>
             </nav>
 

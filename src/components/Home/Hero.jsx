@@ -2,27 +2,29 @@ import Shadi from "../../../public/assets/images/Shadi.png";
 import Image from "next/image";
 import SocialButton from "../shared/SocialButton";
 import Button from "../shared/Button";
+import NormalButton from "../shared/NormalButton";
 
 const Hero = () => {
   return (
-    <section className="max-w-[90%] mx-auto flex flex-col lg:flex-row justify-center items-center lg:gap-10 lg:pt-28 xl:pt-0">
+    <section className=" max-w-[90%] mx-auto flex flex-col lg:flex-row justify-center items-center pt-0 lg:gap-10 lg:pt-28 xl:pt-0">
       {/* Image Part */}
       <div>
         <Image
           src={Shadi}
           alt="Hero Image"
-          className="w-[65%] md:w-[40%] lg:w-full max-w-[90%] z-10 mx-auto"
+          priority
+          className="w-[62%] md:w-[40%] lg:w-full max-w-[90%] z-10 mx-auto"
         />
       </div>
 
       {/* Text Part */}
-      <div className="lg:pt28 xl:pt-0">
+      <div className="lg:pt-28 xl:pt-0">
         <h2 className="text-4xl lg:text-5xl text-gray-200">
           Hello <span className="font-crimson-pro text-orange-500">!</span>
         </h2>
 
         {/* Name Part */}
-        <h1 className="text-3xl md:text-5xl lg:text-4xl xl:text-6xl whitespace-nowrap">
+        <h1 className="text-3xl md:text-5xl xl:text-6xl whitespace-nowrap">
           <span className="font-crimson-pro">I'm</span>{" "}
           <span className="text-cyan-500">
             Eftajul Islam <span className="text-orange-500">Shadi</span>
@@ -46,9 +48,11 @@ const Hero = () => {
           {/* Social Icons */}
           <div className="relative z-20 flex flex-col gap-5 lg:gap-8 justify-center items-center">
             <SocialButton />
-            <Button
-              label="Resume"
-              actionType="download" />
+            <div className="flex flex-row items-center sm:flex-row gap-2 md:gap-4">
+
+              <Button label="Resume" actionType="download" />
+              <NormalButton label="Explore Projects"/>
+            </div>
           </div>
         </div>
       </div>
