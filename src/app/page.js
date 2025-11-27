@@ -10,9 +10,9 @@ const Home = () => {
       </section>
 
       {/* About Section */}
-      <section className=" my-16 lg:my-[120px]">
+      {/* <section className=" my-16 lg:my-[120px]">
         <About />
-      </section>
+      </section> */}
 
       {/* Skills Section */}
       <section></section>
