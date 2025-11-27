@@ -3,8 +3,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
-import { BeamsUpstream } from "@/components/ui/beams-upstream";
-import ScrollToTop from "@/components/shared/ScrollToTop";
+// import { BeamsUpstream } from "@/components/ui/beams-upstream";
+import ScrollToTop from "@/components/ui/ScrollToTop";
 
 const afogand = localFont({
   src: "../../public/assets/fonts/Afogand-ALMqL.ttf",
@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${afogand.variable} ${crimsonPro.variable}`}>
         <ScrollToTop />
-        <BeamsUpstream className="z-0" />
+        {/* <BeamsUpstream className="z-0" /> */}
 
         {/* Navbar */}
         <header className="h-[108px]">

@@ -1,12 +1,12 @@
 import Shadi from "../../../public/assets/images/Shadi.png";
 import Image from "next/image";
-import SocialButton from "../shared/SocialButton";
-import Button from "../shared/Button";
-import NormalButton from "../shared/NormalButton";
+import SocialButton from "../ui/SocialButton";
+import Button from "../ui/Button";
+import NormalButton from "../ui/NormalButton";
 
 const Hero = () => {
   return (
-    <section className=" max-w-[90%] mx-auto flex flex-col lg:flex-row justify-center items-center pt-0 lg:gap-10 lg:pt-28 xl:pt-0">
+    <section className="max-w-[90%] mx-auto flex flex-col lg:flex-row justify-center items-center pt-0 lg:gap-10 lg:pt-28 xl:pt-0">
       {/* Image Part */}
       <div>
         <Image
@@ -35,14 +35,7 @@ const Hero = () => {
         <div className="mt-5">
           {/* Title */}
           <div className="mb-5 lg:mb-10 flex flex-col sm:flex-row items-center sm:items-start justify-center gap-2 sm:gap-4 text-xl md:text-2xl xl:text-3xl font-semibold border-4 text-gray-200 border-cyan-500 p-3 lg:p-4 rounded-2xl whitespace-nowrap relative">
-            <span className="whitespace-nowrap pb-2 sm:pt-0">MERN Stack Developer</span>
-
-            {/* Divider Line */}
-            <div className="hidden sm:block w-[4px] h-10 bg-orange-500 rounded-full"></div>
-            {/* Vertical Line */}
-            <div className="absolute sm:hidden w-[5px] h-36 rotate-[90deg] bg-orange-500 rounded-full"></div>
-
-            <span className="whitespace-nowrap pt-2 sm:pt-0">Frontend Specialist</span>
+            Full Stack Developer
           </div>
 
           {/* Social Icons */}
@@ -51,7 +44,7 @@ const Hero = () => {
             <div className="flex flex-row items-center sm:flex-row gap-2 md:gap-4">
 
               <Button label="Resume" actionType="download" />
-              <NormalButton label="Explore Projects"/>
+              <NormalButton label="Explore Projects" />
             </div>
           </div>
         </div>

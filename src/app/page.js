@@ -1,3 +1,4 @@
+import About from "@/components/Home/About";
 import Hero from "@/components/Home/Hero";
 
 const Home = () => {
@@ -5,21 +6,21 @@ const Home = () => {
     <>
       {/* Hero Section */}
       <section>
-      <Hero />
+        <Hero />
       </section>
 
       {/* About Section */}
-      <section>
-        
+      <section className=" my-16 lg:my-[120px]">
+        <About />
       </section>
-
-      {/* Education Section */}
-      <section></section>
 
       {/* Skills Section */}
       <section></section>
 
       {/* Projects Section */}
+      <section></section>
+
+      {/* Education Section */}
       <section></section>
 
       {/* Contact Section */}

@@ -2,9 +2,9 @@
 
 const About = () => {
   return (
-    <div>
-      
-    </div>
+    <section className="max-w-[90%] mx-auto">
+      This is About
+    </section>
   );
 };
 

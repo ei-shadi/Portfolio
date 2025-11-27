@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { TbMenu } from "react-icons/tb";
@@ -9,8 +8,8 @@ import { GoDotFill } from "react-icons/go";
 import Logo from "../../../public/assets/images/Logo.png";
 import Image from "next/image";
 import Link from "next/link";
-import Button from "../shared/Button";
-import NormalButton from "../shared/NormalButton";
+import Button from "../ui/Button";
+import NormalButton from "../ui/NormalButton";
 
 // Helper function to get social brand colors
 const getSocialColor = (url) => {
@@ -177,10 +176,10 @@ const Navbar = () => {
                   transitionDuration: "500ms",
                 }}
               >
-                <Button 
-                label="Let's Talk" 
-                actionType="contact" 
-                onComplete={() => setIsMenuOpen(false)}/>
+                <Button
+                  label="Let's Talk"
+                  actionType="contact"
+                  onComplete={() => setIsMenuOpen(false)} />
               </div>
             </nav>
 

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Logo from "../../../public/assets/images/Logo.png";
-import SocialButton from "../shared/SocialButton";
+import SocialButton from "../ui/SocialButton";
 
 const Footer = () => {
   return (
@@ -20,6 +20,7 @@ const Footer = () => {
 
         {/* Middle Text */}
         <div className="text-center text-sm md:text-lg text-gray-400 w-full md:w-auto font-afogand">
+          <p className="font-crimson-pro font-bold text-orange-200">eftajul.shadi@gmail.com</p>
           <span className="font-crimson-pro">©</span> All rights reserved by{" "}
           <span className="font-medium text-cyan-500">Eftajul Islam <span className="text-orange-500">Shadi</span></span>
         </div>
